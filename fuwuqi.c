@@ -6,9 +6,8 @@
 #include <string.h>
 int main()
 {
-	int sfp,nfp;
+	int sfp,nfp; int sin_size;
 	struct sockaddr_in s_add,c_add;
-	int sin_size;
 	unsigned short portnum=0x8888;
 	char buffer[1024];
 
@@ -56,7 +55,6 @@ int main()
 			memset(buffer,0,sizeof(buffer));
 			int len = recv(nfp, buffer, sizeof(buffer),0);
 			printf("recv ok!\n");
-
 			if(strcmp(buffer,"exit")==0)// only this useful
 				break;
 			fputs(buffer, stdout);

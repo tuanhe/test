@@ -4,7 +4,6 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <string.h>
-
 int main()
 {
 	int sfp,nfp;
@@ -41,15 +40,14 @@ int main()
 	while(1)
 	{
 		sin_size = sizeof(struct sockaddr_in);
-
 		nfp = accept(sfp, (struct sockaddr *)(&c_add), &sin_size);
 		if(-1 == nfp){
 			printf("accept fail !\r\n");
 			return -1;
 		}
-		printf("accept ok!\r\nServer start get connect from %#x : %#x\r\n",ntohl(c_add.sin_addr.s_addr),ntohs(c_add.sin_port));
+		printf("accept ok!\r\nServer start get connect from %#x : %#x\r\n",
+			ntohl(c_add.sin_addr.s_addr),ntohs(c_add.sin_port));
 
-		printf("write ok!\r\n");
 		if(-1 == write(nfp,"hello,hubin you are Great! \r\n",32)){
 			printf("write fail!\r\n");
 			return -1;

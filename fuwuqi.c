@@ -67,7 +67,6 @@ int main()
 		}			
 		printf("write ok again!\r\n");
 		close(nfp);
-
 	}
 	close(sfp);
 	return 0;
